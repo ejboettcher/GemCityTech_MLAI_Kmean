@@ -25,7 +25,7 @@
     "href": "talk.html#gedunken-experiment",
     "title": "K-mean and GMM Tutorial",
     "section": "Gedunken Experiment",
-    "text": "Gedunken Experiment\nSay there is a town with two employers (A and B).\nPredict if person will end up working for A or B\nFirst stab: See if people are clustered around their work place.\nSo if we had a clustering algorithm we can predict where a person might work."
+    "text": "Gedunken Experiment\nSay there is a town with two employers (A and B).\nPredict if person works for A or B, based on where they live.\n\nFirst stab: See if people are clustered around their work place.\nSo if we had a clustering algorithm we can predict where a person might work."
   },
   {
     "objectID": "talk.html#k-means-on-town-people",
@@ -61,5 +61,12 @@
     "title": "K-mean and GMM Tutorial",
     "section": "Welcome to Gem City Tech ML/AI",
     "text": "Welcome to Gem City Tech ML/AI\n\n\nWe meet every third Thursday and are part of Gem City Tech meetup group\n\nGemCity TECH’s mission is to grow the local industry and the community by providing a centralized destination for technical training, workshops and providing a forum for collaborating.\n\nCurrently, support eight special interest groups from a variety of technical disciplines.\n\n\n\n\n\nDayton Web Developers\nDayton Dynamic Languages\nDayton .net Developers\nGem City Games Developments\nNew to Tech\nFrameworks\nMachine Learning / Artificial Intelligence (ML/AI)\nCode for Dayton"
+  },
+  {
+    "objectID": "talk.html#thank-you",
+    "href": "talk.html#thank-you",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Thank you",
+    "text": "Thank you\nThough my code was only two lines, implementing GMM or K-means can be harder\n\nRemember: The difference between practice and theory is that it is smaller in theory!\n \nReferences:\n\nScikit-learn: https://scikit-learn.org/stable/modules/mixture.html\nGMM: https://scikit-learn.org/stable/modules/mixture.html\nGMM with nice math from Toward Data Science\nWikipedia: K-mean\n\n\n\n\nGem City Tech ML/AI"
   }
 ]

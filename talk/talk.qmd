@@ -120,18 +120,29 @@ Same data as above but without the Truth / Label
 Find features that separate the data into groups / clusters.
 Then hope there is a small number of labeled features so that we can classify those groups.
 
+### Why Do Unsupervised
+
+Labeled data is really expensive.  
+
 ----
 
 ## Gedunken Experiment
 
 Say there is a town with two employers (A and B).  
-Predict if person will end up working for A or B
+Predict if person works for A or B, based on where they live.
+
+<br>
 
 First stab: See if people are clustered around their work place.
 
 So if we had a clustering algorithm we can predict where a person might work.
 
-![](./img/townpeople.png)
+:::{ }
+
+![](./img/townpeople.png){width=55% fig-align=center}
+
+:::
+
 
 ---
 
@@ -139,13 +150,13 @@ So if we had a clustering algorithm we can predict where a person might work.
 
 K-means is the most common clustering algorithm.
 <br>
-K-means clusters, n data points into k clusters but placing each data point to the nearest k mean.
+K-means clusters, n data points (e.g. All your data) into k clusters by placing each data point to the nearest k.
 
 <br>
 
-Example point p is 5 ft from $k_i$ and 10 feet from $k_j$.  K-means would then place point p into the
-$k_i$ group.  Once, all the points are placed into a cluster or group, the means ($k_i$ and $k_j$) 
-are updated.  The location for each mean cluster is calculated by finding the mean from all the points that belong to that cluster.
+Example: point **p** is 5 ft from $k_i$ and 10 feet from $k_j$.  K-means would then place point **p** into the
+$k_i$ group.  Once, all the points are placed into a cluster or group, the new means for each cluster ($k_i$ and $k_j$) 
+are updated.  The location for each mean cluster __k__ is calculated by finding the mean from all the points that belong to that cluster.
 
 <br>
 
@@ -155,17 +166,21 @@ are updated.  The location for each mean cluster is calculated by finding the me
 * Calculate a new mean for A and B
 * Repeat steps 2 and 3.
 
+### Kmeans
+
+Kmeans is just that, k means.
+
 ---
 
 ### Background 
 
-k-means clustering comes from signal processing.  Invented in 1967 buy MacQueen.<br>
+k-means clustering comes from signal processing.  Invented in 1967 by MacQueen.<br>
 k-means clustering minimizes within-cluster
 variances (squared Euclidean distances).  There is also k-medians and k-medoids.
 
 <br>
 
-K-means is an iterative method.
+K-means is an iterative method. (We repeated steps 2 and 3, till some threshold)
 
 <br>
 
@@ -278,13 +293,55 @@ In practice, people use a kmeans to determine the initial seeding for the GMM.
 GMM is slower / computationally intensive than kmean.
 
 
+<br>
+<br>
 
-References:
+```python
+# Get Data
+A_points, B_points, mu_A, mu_B = define_points()
+points = np.concatenate((A_points, B_points), axis=0)
 
-Scikit-learn: https://scikit-learn.org/stable/modules/mixture.html
-GMM: https://scikit-learn.org/stable/modules/mixture.html
-Wikipedia: K-mean https://en.wikipedia.org/wiki/K-means_clustering
+# Kmeans
+kmeans = KMeans(init="random", n_clusters=2, n_init=10, max_iter=1000, random_state=42)
+kmeans.fit(points)
+# kmeans_plot(points, kmeans)
 
---- 
+# GMM
+gmm = GMM(n_components=2, random_state=0)
+gmm.fit(points)
+gmm_labels = gmm.predict(points)
+gmm_plot(points, kmeans, gmm_labels)
 
-Thank you
+```
+
+<br>
+
+### Who uses GMM 
+
+GMM is used for 
+
+* recommendations (e.g. which movie you will like)
+* correcting for [air turbulence](https://ecommons.udayton.edu/cgi/viewcontent.cgi?article=1426&context=ece_fac_pub) in imagery
+* We saw in October Modeling Nano Tube production
+
+
+---
+
+## Thank you
+
+Though my code was only two lines, implementing GMM or K-means can be harder
+
+<br>
+
+Remember: The difference between practice and theory is that it is smaller in theory!
+
+<br>
+<br>
+
+### References:
+
+* Scikit-learn: https://scikit-learn.org/stable/modules/mixture.html
+* [GMM](https://scikit-learn.org/stable/modules/mixture.html): https://scikit-learn.org/stable/modules/mixture.html
+* [GMM with nice math](https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95) from Toward Data Science
+* Wikipedia: [K-mean](https://en.wikipedia.org/wiki/K-means_clustering)
+
