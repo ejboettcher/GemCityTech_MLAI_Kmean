@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "talk.html",
+    "href": "talk.html",
+    "title": "",
+    "section": "",
+    "text": "We meet every third Thursday and are part of Gem City Tech meetup group\nGemCity TECH’s mission is to grow the local industry and the community by providing a centralized destination for technical training, workshops and providing a forum for collaborating.\n\n\n\n\nCurrently, support eight special interest groups from a variety of technical disciplines.\n\nDayton Web Developers\nDayton Dynamic Languages\nDayton .net Developers\nGem City Games Developments\nNew to Tech\nFrameworks\nMachine Learning / Artificial Intelligence (ML/AI)\nCode for Dayton"
+  },
+  {
+    "objectID": "talk.html#big-thanks-to-our-sponsors",
+    "href": "talk.html#big-thanks-to-our-sponsors",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Big Thanks to our Sponsors",
+    "text": "Big Thanks to our Sponsors\n \n\n\nGem City Tech\n\n\nThe Hub\n\n\nTechnology First\n\n\n\n\nGemCity TECH: GemCity.Tech\nThe Innovation Hub: thehubdayton.com\nTechnology First: www.technologyfirst.org"
+  },
+  {
+    "objectID": "talk.html#unsupervised-learning",
+    "href": "talk.html#unsupervised-learning",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\nBefore we get into k-means. Let’s go over unsupervised learning. Unsupervised learning is when you have data but do not have the truth but need to classify.\n\nSupervised learning is when you have labels for each data point.\n \nExample of Data for Supervised Learning is\n\n\n\n\n\n\n\n\n\nData\nTruth / Label\nData\nTruth /Label\n\n\n\n\n\ncat\n\ndog"
+  },
+  {
+    "objectID": "talk.html#gedunken-experiment",
+    "href": "talk.html#gedunken-experiment",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Gedunken Experiment",
+    "text": "Gedunken Experiment\nSay there is a town with two employers (A and B).\nPredict if person will end up working for A or B\nFirst stab: See if people are clustered around their work place.\nSo if we had a clustering algorithm we can predict where a person might work."
+  },
+  {
+    "objectID": "talk.html#k-means-on-town-people",
+    "href": "talk.html#k-means-on-town-people",
+    "title": "K-mean and GMM Tutorial",
+    "section": "K-means on Town people",
+    "text": "K-means on Town people\nSckit-learn implementation results\n\n\nPredicted Centers: [[-0.27 0.46], [ 5.73, 2.83]]\nTrue Centers: (1, 1), (6, 3)"
+  },
+  {
+    "objectID": "talk.html#gaussian-mixture-model",
+    "href": "talk.html#gaussian-mixture-model",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Gaussian Mixture Model",
+    "text": "Gaussian Mixture Model\nK-means assumes that the K number of guassians have the same variance (e.g. width) Gaussian Mixture Model does not assume that.\n\nMuch Nicer\n{width:900px}"
+  },
+  {
+    "objectID": "talk.html#what-is-gaussian-mixture-model.",
+    "href": "talk.html#what-is-gaussian-mixture-model.",
+    "title": "K-mean and GMM Tutorial",
+    "section": "What is Gaussian Mixture Model.",
+    "text": "What is Gaussian Mixture Model.\n\n\nBasically, GMM is a generalized k-means clustering algorithm which incorporates information about the covariance structure of the data as well as the centers of the latent Gaussians (scikit-learn).\nA Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters.\n\n code\n\n\nEach Gaussian k belongs to a set of clusters where k ∈ {1,…, K}, where K is the number of clusters of our dataset. Each k in the mixture comprises the following parameters:\n\nA mean \\(\\mu\\) that defines its center.\nA covariance \\(\\Sigma\\) that defines its width. This would be equivalent to the dimensions of an ellipsoid in a multivariate scenario.\nA mixing probability \\(\\pi\\) that defines how big or small the Gaussian function will be."
+  },
+  {
+    "objectID": "talk.html#welcome-to-gem-city-tech-mlai-group",
+    "href": "talk.html#welcome-to-gem-city-tech-mlai-group",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Welcome to Gem City Tech ML/AI group",
+    "text": "Welcome to Gem City Tech ML/AI group\n\n\nWe meet every third Thursday and are part of Gem City Tech meetup group\n\nGemCity TECH’s mission is to grow the local industry and the community by providing a centralized destination for technical training, workshops and providing a forum for collaborating.\n\nCurrently, support eight special interest groups from a variety of technical disciplines.\n\n\n\n\n\nDayton Web Developers\nDayton Dynamic Languages\nDayton .net Developers\nGem City Games Developments\nNew to Tech\nFrameworks\nMachine Learning / Artificial Intelligence (ML/AI)\nCode for Dayton"
+  },
+  {
+    "objectID": "talk.html#welcome-to-gem-city-tech-mlai",
+    "href": "talk.html#welcome-to-gem-city-tech-mlai",
+    "title": "K-mean and GMM Tutorial",
+    "section": "Welcome to Gem City Tech ML/AI",
+    "text": "Welcome to Gem City Tech ML/AI\n\n\nWe meet every third Thursday and are part of Gem City Tech meetup group\n\nGemCity TECH’s mission is to grow the local industry and the community by providing a centralized destination for technical training, workshops and providing a forum for collaborating.\n\nCurrently, support eight special interest groups from a variety of technical disciplines.\n\n\n\n\n\nDayton Web Developers\nDayton Dynamic Languages\nDayton .net Developers\nGem City Games Developments\nNew to Tech\nFrameworks\nMachine Learning / Artificial Intelligence (ML/AI)\nCode for Dayton"
+  }
+]
