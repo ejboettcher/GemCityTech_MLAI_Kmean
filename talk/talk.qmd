@@ -1,0 +1,290 @@
+---
+title: "K-mean and GMM Tutorial"
+subtitle: "Gem City Tech ML/AI Meetup"
+date: "Nov. 17 2022"
+author: "Presented by Evelyn J. Boettcher, DiDacTex, LLC"
+format:
+    revealjs:
+        incremental: false
+fig-cap-location: margin
+
+---
+
+
+## Welcome to Gem City Tech ML/AI 
+
+:::{.columns}
+::::{.column width=72%}
+
+We meet every third Thursday and are part of Gem City Tech meetup group
+
+<br>
+
+GemCity TECH’s mission is to grow the local industry and the community by providing a centralized destination for
+technical training, workshops and providing a forum for collaborating.
+
+<br>
+
+Currently, support eight special interest groups from a variety of technical disciplines.
+::::
+::::{.column width=26%}
+![](./img/qr-code.png)
+::::
+:::
+
+- Dayton Web Developers
+- Dayton Dynamic Languages
+- Dayton .net Developers
+- Gem City Games Developments
+- New to Tech
+- Frameworks
+- **Machine Learning / Artificial Intelligence (ML/AI)**
+- Code for Dayton
+
+---
+
+## Big Thanks to our Sponsors
+
+<br>
+<br>
+
+:::{.columns}
+::::{.column width=28%}
+
+#### Gem City Tech
+![](./img/GCTLogo.PNG)
+
+::::
+::::{.column width=28%}
+
+#### The Hub
+ ![](./img/The-Hub-Logo-PNC.jpg) 
+::::
+::::{.column width=28%}
+#### Technology First 
+ ![](./img/tech_first_logo.jpg) 
+
+::::
+:::
+
+
+* GemCity TECH: [GemCity.Tech](https://Gemcity.tech)
+* The Innovation Hub: [thehubdayton.com](https://www.thehubdayton.com/)
+* Technology First: [www.technologyfirst.org](https://www.technologyfirst.org/)
+
+---
+
+### Calendar Events
+
+* Gem City Tech ML/AI: Third Thursday at 6.
+* The GemCity TECH Meetup calendar of upcoming events: [www.meetup.com/gem-city-tech](https://www.meetup.com/gem-city-tech/events/calendar/)
+* [The Technology First events calendar](https://www.technologyfirst.org/Technology-First-Events?EventViewMode=1&EventListViewMode=2&SelectedDate=8/20/2022&CalendarViewType=1)
+
+---
+
+## Unsupervised Learning 
+
+Before we get into k-means.  Let's go over unsupervised learning.
+Unsupervised learning is when you have data but do not have the truth but need to classify.
+
+<br>
+
+Supervised learning is when you have labels for each data point.
+
+<br>
+<br>
+
+### Example of Data for Supervised Learning is 
+
+| Data                     | Truth / Label | Data                                 |  Truth  /Label  |
+|:-------------------------|:--------------|:-------------------------------------|:--------------|
+| ![](./img/cat_test2.jpg){width="200px"} | cat           | ![](./img/smores.jpg){width="200px"} | dog           |
+
+---
+
+### Example of data for unsupervised learning
+
+Same data as above but without the Truth / Label
+
+
+
+
+| Data                     | Data                                   |
+|:-------------------------|:--------------|
+| ![](./img/cat_test2.jpg){width="200px"} | ![](./img/smores.jpg){width="200px"} | 
+
+<br>
+
+### Goal of unsupervised learning
+
+Find features that separate the data into groups / clusters.
+Then hope there is a small number of labeled features so that we can classify those groups.
+
+----
+
+## Gedunken Experiment
+
+Say there is a town with two employers (A and B).  
+Predict if person will end up working for A or B
+
+First stab: See if people are clustered around their work place.
+
+So if we had a clustering algorithm we can predict where a person might work.
+
+![](./img/townpeople.png)
+
+---
+
+### K-Means
+
+K-means is the most common clustering algorithm.
+<br>
+K-means clusters, n data points into k clusters but placing each data point to the nearest k mean.
+
+<br>
+
+Example point p is 5 ft from $k_i$ and 10 feet from $k_j$.  K-means would then place point p into the
+$k_i$ group.  Once, all the points are placed into a cluster or group, the means ($k_i$ and $k_j$) 
+are updated.  The location for each mean cluster is calculated by finding the mean from all the points that belong to that cluster.
+
+<br>
+
+
+* Seed with initial k mean points
+* Find where each point belongs: cluster A or B
+* Calculate a new mean for A and B
+* Repeat steps 2 and 3.
+
+---
+
+### Background 
+
+k-means clustering comes from signal processing.  Invented in 1967 buy MacQueen.<br>
+k-means clustering minimizes within-cluster
+variances (squared Euclidean distances).  There is also k-medians and k-medoids.
+
+<br>
+
+K-means is an iterative method.
+
+<br>
+
+It converges but it can converge to a local minium!<br>
+k-means and Gaussian mixture model both use cluster centers to model the data.
+
+<br>
+
+k-means clustering assumes each mean has same distribution, while the Gaussian mixture model 
+allows clusters to have different distributions.
+
+---
+
+### K-means math
+
+Randomly create an initial set of k means: $\mu_1$, ..., $\mu_k$.
+
+Alternating between assignment and update steps:
+
+<br>
+
+#### Assignment step: 
+
+Assign each data point to the cluster
+with the nearest mean (least squared Euclidean distance).
+
+Each point is assigned to exactly **one** k mean.  Creating k sets ($S$)
+
+$$
+S_i = { x_p: | x_p - \mu_i |^2 <= | x_p - \mu_j |^2 \forall_j, 1 \leq j \leq k } 
+$$
+
+#### Update step: 
+
+Recalculate the means (centroids) from the datapoints with in each set S.
+
+$$
+\mu_i = 1/ S_i \sum_p x_p
+$$
+
+
+---
+
+## K-means on Town people
+Sckit-learn implementation results
+
+![](./img/truth_kmeans.png)
+
+* Predicted Centers: [[-0.27   0.46], [ 5.73,  2.83]]
+* True Centers:  (1, 1), (6, 3)
+
+---
+
+## Gaussian Mixture Model
+
+K-means assumes that the K number of guassians have the same variance (e.g. width)
+Gaussian Mixture Model does not assume that.
+
+<br>
+
+### Much Nicer
+
+![](./img/gmm_truth.png){width:900px}
+
+---
+
+## What is Gaussian Mixture Model.
+
+:::{.columns}
+::::{.column width=68%}
+
+Basically, GMM is a generalized k-means clustering algorithm which
+incorporates information about the covariance structure of the data as well as the centers of the 
+ latent Gaussians (scikit-learn).
+ 
+A Gaussian mixture model is a probabilistic model that assumes all the 
+data points are generated from a mixture of a finite number of Gaussian 
+distributions with unknown parameters. 
+::::
+::::{.column width=30%}
+
+![scikit-learn](./img/sphx_glr_plot_gmm_pdf_001.png)
+[code](https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_pdf.html)
+::::
+:::
+
+Each Gaussian k belongs to a set of clusters where k ∈ {1,…, K}, where K is the number of 
+clusters of our dataset. Each k in the mixture comprises the following parameters:
+
+* A mean $\mu$ that defines its center.
+* A covariance $\Sigma$ that defines its width. This would be equivalent to the dimensions of an ellipsoid in a multivariate scenario.
+* A mixing probability $\pi$ that defines how big or small the Gaussian function will be.
+
+
+---
+
+![Toward Data Science](./img/1_lTv7e4Cdlp738X_WFZyZHA.png)
+
+In addition, the mixing coefficients/probabilities $\pi$  must sum to 1.  
+E.g. Each data point must exist in one of the k gaussian.
+
+$$
+\sum_{k=1}^{K} \pi_k = 1 
+$$
+
+
+---
+
+In practice, people use a kmeans to determine the initial seeding for the GMM. 
+GMM is slower / computationally intensive than kmean.
+
+
+
+References:
+
+Scikit-learn: https://scikit-learn.org/stable/modules/mixture.html
+GMM: https://scikit-learn.org/stable/modules/mixture.html
+Wikipedia: K-mean https://en.wikipedia.org/wiki/K-means_clustering
+
+--- 
+
+Thank you
