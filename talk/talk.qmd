@@ -84,8 +84,9 @@ Currently, support eight special interest groups from a variety of technical dis
 
 ## Unsupervised Learning 
 
-Before we get into k-means.  Let's go over unsupervised learning.
-Unsupervised learning is when you have data but do not have the truth but need to classify.
+Before we get into k-means.  Let's go over unsupervised learning. <br>
+Unsupervised learning is when "learn" something about the data, 
+but do not have the data truth.
 
 <br>
 
