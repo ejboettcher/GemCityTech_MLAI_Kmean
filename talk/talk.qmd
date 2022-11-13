@@ -95,7 +95,7 @@ Supervised learning is when you have labels for each data point.
 <br>
 <br>
 
-### Example of Data for Supervised Learning is 
+### Example of Data for Supervised Learning
 
 | Data                     | Truth / Label | Data                                 |  Truth  /Label  |
 |:-------------------------|:--------------|:-------------------------------------|:--------------|
@@ -104,10 +104,6 @@ Supervised learning is when you have labels for each data point.
 ---
 
 ### Example of data for unsupervised learning
-
-Same data as above but without the Truth / Label
-
-
 
 
 | Data                     | Data                                   |
@@ -123,7 +119,7 @@ Then hope there is a small number of labeled features so that we can classify th
 
 ### Why Do Unsupervised
 
-Labeled data is really expensive.  
+Labeled data is really expensive.  Sometimes "truth" can not be obtained.  Example: atmospheric distortion.
 
 ----
 
@@ -185,7 +181,7 @@ K-means is an iterative method. (We repeated steps 2 and 3, till some threshold)
 
 <br>
 
-It converges but it can converge to a local minium!<br>
+It converges, but it can converge to a local minium! <br>
 k-means and Gaussian mixture model both use cluster centers to model the data.
 
 <br>
